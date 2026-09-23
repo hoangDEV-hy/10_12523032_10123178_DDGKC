@@ -1,0 +1,1 @@
+##khởi đầu luôn nặng nề nhất vì bộ não phản ứng mạnh với sự không chắc chắn và vẽ ra viễn cảnh quá sức
