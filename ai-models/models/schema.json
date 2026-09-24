@@ -1,0 +1,71 @@
+{
+    "features": {
+        "carat": {
+            "type": "number",
+            "description": "Trọng lượng kim cương"
+        },
+        "cut": {
+            "type": "string",
+            "description": "Chất lượng cắt",
+            "values": [
+                "Fair",
+                "Good",
+                "Very Good",
+                "Premium",
+                "Ideal"
+            ]
+        },
+        "color": {
+            "type": "string",
+            "description": "Màu sắc",
+            "values": [
+                "D",
+                "E",
+                "F",
+                "G",
+                "H",
+                "I",
+                "J"
+            ]
+        },
+        "clarity": {
+            "type": "string",
+            "description": "Độ tinh khiết",
+            "values": [
+                "I1",
+                "SI2",
+                "SI1",
+                "VS2",
+                "VS1",
+                "VVS2",
+                "VVS1",
+                "IF"
+            ]
+        },
+        "depth": {
+            "type": "number",
+            "description": "Độ sâu"
+        },
+        "table": {
+            "type": "number",
+            "description": "Kích thước mặt bàn"
+        },
+        "x": {
+            "type": "number",
+            "description": "Chiều dài"
+        },
+        "y": {
+            "type": "number",
+            "description": "Chiều rộng"
+        },
+        "z": {
+            "type": "number",
+            "description": "Chiều sâu"
+        }
+    },
+    "target": {
+        "name": "price",
+        "type": "number",
+        "description": "Giá kim cương"
+    }
+}

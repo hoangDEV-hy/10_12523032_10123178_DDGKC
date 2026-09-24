@@ -1,0 +1,43 @@
+{
+    "dataset": "Diamonds",
+    "target": "price",
+    "features": [
+        "carat",
+        "cut",
+        "color",
+        "clarity",
+        "depth",
+        "table",
+        "x",
+        "y",
+        "z"
+    ],
+    "test_size": 0.2,
+    "random_state": 42,
+    "models": {
+        "Linear Regression": {
+            "file": "linear_regression.joblib",
+            "MAE": 791.7,
+            "RMSE": 1127.92,
+            "R2": 0.92
+        },
+        "Decision Tree": {
+            "file": "decision_tree.joblib",
+            "MAE": 321.9,
+            "RMSE": 628.22,
+            "R2": 0.98
+        },
+        "Random Forest": {
+            "file": "random_forest.joblib",
+            "MAE": 263.34,
+            "RMSE": 519.21,
+            "R2": 0.98
+        },
+        "Gradient Boosting": {
+            "file": "gradient_boosting.joblib",
+            "MAE": 361.59,
+            "RMSE": 651.99,
+            "R2": 0.97
+        }
+    }
+}
