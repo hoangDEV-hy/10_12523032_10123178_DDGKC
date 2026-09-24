@@ -1,0 +1,58 @@
+services:
+  ai-service:
+    build:
+      context: ./ai-models
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 60s
+    init: true
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 5000
+      AI_SERVICE_URL: http://ai-service:8000
+    ports:
+      - "5000:5000"
+    depends_on:
+      ai-service:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "require('http').get('http://127.0.0.1:5000/api/health', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    init: true
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: /api
+    ports:
+      - "5173:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    init: true
